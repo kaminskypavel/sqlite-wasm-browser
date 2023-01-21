@@ -26,7 +26,7 @@ export function useDB(data?: ArrayBuffer | null) {
     useEffect(() => {
         console.log("Looking for loadSQL")
         // @ts-ignore
-        if (window.loadSQL) {
+        if (window.initSqlJs) {
             console.log("Should try initSQLJS")
             // @ts-ignore
             window.loadSQL().then((db) => {
