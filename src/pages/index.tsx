@@ -32,7 +32,8 @@ export default function Home() {
       <Script type="module" src="/sql-loader.js" />
 
       <main className={styles.main}>
-        <div className='w-full'>
+        <div className='w-full grid grid-cols-2 '>
+          <h3 className='text-sm font-bold '><Link className="text-blue-500" href="https://github.com/kaminskypavel/sqlite-wasm-browser">⭐ on Github</Link></h3>
           <h3 className='text-sm font-bold text-right'>download database file form <Link className="text-blue-500" href="/chinook.db">here</Link></h3>
         </div>
         <div className="text-center flext">

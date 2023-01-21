@@ -1,5 +1,7 @@
 # sqlite-wasm-browser
 
+## [Demo](https://sqlite-wasm-browser.vercel.app/)
+
 using [SQL.js](https://github.com/sql-js/sql.js) to run sqlite in browser.
 
 ## Demo Database
