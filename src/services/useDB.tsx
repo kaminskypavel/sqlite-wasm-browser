@@ -24,9 +24,9 @@ export function useDB(data?: ArrayBuffer | null) {
     }, [])
 
     useEffect(() => {
-        console.log("Looking for loadSQL")
+        console.log("Looking for initSqlJs")
         // @ts-ignore
-        if (window.loadSQL) {
+        if (window.initSqlJs) {
             console.log("Should try initSQLJS")
             // @ts-ignore
             window.loadSQL().then((db) => {
@@ -35,7 +35,8 @@ export function useDB(data?: ArrayBuffer | null) {
             })
         }
         return () => { }
-    }, [windowWatcher])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [windowWatcher && window?.initSqlJs]);
 
     useEffect(() => {
         if (engine && data) {
