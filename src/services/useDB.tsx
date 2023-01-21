@@ -35,7 +35,8 @@ export function useDB(data?: ArrayBuffer | null) {
             })
         }
         return () => { }
-    }, [windowWatcher,window?.initSqlJs])
+       // @ts-ignore
+    }, [windowWatcher, window?.initSqlJs])
 
     useEffect(() => {
         if (engine && data) {
