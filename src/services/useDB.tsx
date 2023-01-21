@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react"
 
-export function useDB(data) {
+export function useDB(data: ArrayBuffer) {
     const [engine, setEngine] = useState(null)
     const [db, setDB] = useState(null)
     const [windowWatcher, setWindowWatcher] = useState(false);

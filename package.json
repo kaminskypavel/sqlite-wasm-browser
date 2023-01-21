@@ -10,6 +10,7 @@
     "postinstall": "cp node_modules/sql.js/dist/sql-wasm.js public && cp node_modules/sql.js/dist/sql-wasm.wasm public"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.7",
     "@next/font": "13.1.4",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",

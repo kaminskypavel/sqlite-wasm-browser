@@ -1,19 +1,20 @@
 import {useEffect, useState} from "react";
 
 export default function useBinaryFile(url: string) {
-    const [dataFile, setDataFile] = useState(null)
+    const [data, setData] = useState<ArrayBuffer | null>(null)
 
     useEffect(() => {
         console.log(`Loading ${url}`)
 
-        fetch(
-            url
-        ).then((res) => {
-            res.arrayBuffer().then((data) => setDataFile(data))
-        })
+        fetch(url)
+            .then((res) => {
+                res.arrayBuffer().then((data) => setData(data))
+            })
 
-        return () => {console.log("Unmounted binary file")}
+        return () => {
+            console.log("Unmounted binary file")
+        }
     }, [url]);
 
-    return dataFile
+    return data
 }
