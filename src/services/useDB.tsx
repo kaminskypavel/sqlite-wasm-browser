@@ -1,8 +1,9 @@
 import {useEffect, useState} from "react"
+import sql from "sql.js"
 
-export function useDB(data: ArrayBuffer) {
+export function useDB(data?: ArrayBuffer | null) {
     const [engine, setEngine] = useState(null)
-    const [db, setDB] = useState(null)
+    const [db, setDB] = useState<sql.Database | null>(null)
     const [windowWatcher, setWindowWatcher] = useState(false);
 
     useEffect(() => {
@@ -50,16 +51,17 @@ export function useDB(data: ArrayBuffer) {
     return db
 }
 
-export function useDBQuery(db, query) {
-    const [results, setResults] = useState(null)
+type Nullable<T> = T | null | undefined;
+
+export function useDBQuery(db: Nullable<sql.Database>, query: string) {
+    const [results, setResults] = useState<sql.QueryExecResult[] | null>(null)
 
     useEffect(() => {
         if (db) {
             console.log(`Running query ${query}`)
             const r = db.exec(query)
             console.log(r)
-            // @ts-ignore
-            window.results = r;
+
             setResults(r)
         }
     }, [db, query])
